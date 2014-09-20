@@ -1,0 +1,8 @@
+library(ggplot2)
+NEI <- readRDS("summarySCC_PM25.rds")
+SCC <- readRDS("Source_Classification_Code.rds")
+png(file = "plot3.png")
+NEIsub <- data.frame(subset(NEI, NEI$fips == "24510"))
+g <- ggplot(NEIsub, aes(Emissions, year), facets =.~ type)
+p <- g + geom_point()
+print(p)

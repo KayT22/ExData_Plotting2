@@ -1,0 +1,5 @@
+NEI <- readRDS("summarySCC_PM25.rds")
+SCC <- readRDS("Source_Classification_Code.rds")
+png(file = "plot2.png")
+NEIsub <- na.omit(subset(NEI, NEI$fips == "24510"))
+plot(NEIsub$year, NEIsub$Emissions, type = "l", xlab = "Year", ylab = "Emissions")
